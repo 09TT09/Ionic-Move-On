@@ -1,0 +1,65 @@
+<style>
+
+	ion-content{
+		--ion-background-color: #4B0082;
+		font-family: Arial;
+	}
+	
+	div{
+		width: 100%;
+	}
+	
+	.flex_div{
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;  
+	}
+
+	.connexion{
+		--border-radius: 5px;
+		--ion-color-primary: #AF52DE;
+		color: white;
+		margin: auto;
+		width: 50%;
+		margin-top: 50px; 
+	}
+	
+	ion-label{
+		margin: auto;
+		color: white
+	}
+	
+	ion-input{
+		border-radius: 5px;
+		height: 40px;
+		margin: auto;
+		width : 80%;
+		border: solid white 1px;
+		background-color: white;
+	}
+	
+	a{
+		margin: auto;
+	}
+
+</style>
+
+<ion-content>
+	<div class="flex_div">
+		<div>
+			<ion-row><ion-label>Email</ion-label></ion-row><br/>
+			<ion-input type="email" [(ngModel)]="email"></ion-input><br/>
+			
+			<ion-row><ion-label>Mot de passe</ion-label></ion-row><br/>
+			<ion-input type="password" [(ngModel)]="password"></ion-input><br/>
+			
+			<ion-row><ion-label>Confirmation mot de passe</ion-label></ion-row><br/>
+			<ion-input type="password" [(ngModel)]="validatepassword"></ion-input><br/>
+		
+			<ion-row><ion-button expand="block" class="connexion" (click)="register()">S'inscrire</ion-button></ion-row><br/><br/><br/>
+			
+			<ion-row><a href="">Connexion</a></ion-row>
+		</div>
+	</div>
+</ion-content>
