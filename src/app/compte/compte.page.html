@@ -1,0 +1,55 @@
+<style>
+
+ion-content{
+	--ion-background-color: #4B0082;
+	font-family: Arial;
+}
+
+/* HEADER */
+	
+	ion-toolbar{
+		--background: rgb(39, 39, 39);
+		color: white;
+		border-bottom: solid #AF52DE 1px;
+	}
+	
+/* TABS-BOTTOM */
+
+	ion-tab-bar{
+		--ion-background-color: rgb(39, 39, 39);
+		border-top: solid #AF52DE 1px;
+	}
+	
+	ion-icon {
+		color: #AF52DE;
+	}
+	
+	.ion-tab-button-last{
+		border-left: solid #AF52DE 1px;
+	}
+
+</style>
+
+<ion-header>
+	<ion-toolbar>
+		<ion-title>compte</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+</ion-content>
+
+<ion-tab-bar slot="bottom">
+
+	<ion-tab-button tab="speakers">
+		<ion-icon name="search-outline"></ion-icon>
+		<ion-label>Recherche</ion-label>
+	</ion-tab-button>
+	
+	<ion-tab-button tab="map" class="ion-tab-button-last">
+		<ion-icon name="map"></ion-icon>
+		<ion-label>Carte</ion-label>
+	</ion-tab-button>
+
+</ion-tab-bar>

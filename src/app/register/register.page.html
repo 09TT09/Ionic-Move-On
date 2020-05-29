@@ -42,10 +42,40 @@
 	a{
 		margin: auto;
 	}
+	
+/* HEADER */
+	
+	ion-toolbar{
+		--background: rgb(39, 39, 39);
+		color: white;
+		border-bottom: solid #AF52DE 1px;
+	}
+	
+/* TABS-BOTTOM */
+
+	ion-tab-bar{
+		--ion-background-color: rgb(39, 39, 39);
+		border-top: solid #AF52DE 1px;
+	}
+	
+	ion-icon {
+		color: #AF52DE;
+	}
+	
+	.ion-tab-button-last{
+		border-left: solid #AF52DE 1px;
+	}
 
 </style>
 
+<ion-header>
+	<ion-toolbar>
+		<ion-title>Inscription</ion-title>
+	</ion-toolbar>
+</ion-header>
+
 <ion-content>
+
 	<div class="flex_div">
 		<div>
 			<ion-row><ion-label>Email</ion-label></ion-row><br/>
@@ -59,7 +89,22 @@
 		
 			<ion-row><ion-button expand="block" class="connexion" (click)="register()">S'inscrire</ion-button></ion-row><br/><br/><br/>
 			
-			<ion-row><a href="">Connexion</a></ion-row>
+			<ion-row><a routerLink="/login">Connexion</a></ion-row>
 		</div>
 	</div>
+	
 </ion-content>
+
+<ion-tab-bar slot="bottom">
+
+	<ion-tab-button tab="speakers">
+		<ion-icon name="search-outline"></ion-icon>
+		<ion-label>Recherche</ion-label>
+	</ion-tab-button>
+	
+	<ion-tab-button tab="map" class="ion-tab-button-last">
+		<ion-icon name="map"></ion-icon>
+		<ion-label>Carte</ion-label>
+	</ion-tab-button>
+
+</ion-tab-bar>
