@@ -1,0 +1,142 @@
+<style>
+  div {
+    width: 100%;
+  }
+
+  .flex_div {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .connexion {
+    --border-radius: 5px;
+    --ion-color-primary: #af52de;
+    color: white;
+    margin: auto;
+    width: 50%;
+    margin-top: 50px;
+  }
+  ion-avatar {
+    z-index: 1;
+  }
+  ion-img {
+    z-index: 0;
+  }
+  ion-label {
+    margin: auto;
+    color: white;
+  }
+
+  ion-input {
+    border-radius: 5px;
+    height: 40px;
+    margin: auto;
+    width: 80%;
+    border: solid white 1px;
+    background-color: white;
+  }
+
+  a {
+    margin: auto;
+  }
+  .ion-avatar-main {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: 50px;
+    left: 25px;
+  }
+  .ion-label-main {
+    position: absolute;
+    top: 50px;
+    right: 25px;
+  }
+  .star {
+    position: absolute;
+    top: 70px;
+    left: 280px;
+  }
+</style>
+
+<ion-header>
+  <ion-toolbar routerLink="/contact">
+    <ion-title
+      ><ion-icon name="arrow-back-outline"></ion-icon> Profil</ion-title
+    >
+  </ion-toolbar> </ion-header
+><ion-content>
+  <ion-img src="../../assets/icon/fond.jpg"> </ion-img>
+  <ion-avatar class="ion-avatar-main">
+    <img src="../../assets/icon/FRUCHARD_Sosthene.jpg" />
+  </ion-avatar>
+  <ion-label class="ion-label-main">Sostene Fruchard</ion-label>
+  <div class="star">
+    <ion-icon name="star"></ion-icon>
+    <ion-icon name="star"></ion-icon>
+    <ion-icon name="star"></ion-icon>
+    <ion-icon name="star"></ion-icon>
+    <ion-icon name="star"></ion-icon>
+  </div>
+  <div class="Contactlist">
+    <ion-list>
+      <ion-item routerLink="/profil">
+        <ion-avatar slot="start">
+          <img src="../../assets/icon/DAYAUX-Jules.jpg" />
+        </ion-avatar>
+
+        <ion-label>Jules Dayaux</ion-label>
+        <ion-icon name="star"></ion-icon>
+        <ion-icon name="star"></ion-icon>
+        <ion-icon name="star"></ion-icon>
+        <ion-icon name="star"></ion-icon>
+        <ion-icon name="star"></ion-icon>
+      </ion-item>
+      <ion-item>
+        <ion-avatar slot="start">
+          <img src="../../assets/icon/bougy-alexis.jpg" />
+        </ion-avatar>
+        <ion-label>Alexis Bougy</ion-label>
+        <ion-icon name="star"></ion-icon>
+        <ion-icon name="star"></ion-icon>
+        <ion-icon name="star"></ion-icon>
+        <ion-icon name="star"></ion-icon>
+        <ion-icon name="star-half"></ion-icon>
+      </ion-item>
+      <ion-item>
+        <ion-avatar slot="start">
+          <img src="../../assets/icon/Fontaine-Alexandre.jpg" />
+        </ion-avatar>
+        <ion-label>Alexandre Fontaine</ion-label>
+        <ion-icon name="star"></ion-icon>
+        <ion-icon name="star"></ion-icon>
+        <ion-icon name="star"></ion-icon>
+        <ion-icon name="star-half"></ion-icon>
+        <ion-icon name="star-outline"></ion-icon>
+      </ion-item>
+      <ion-item>
+        <ion-avatar slot="start">
+          <img src="../../assets/icon/gauchet-mathieu.jpg" />
+        </ion-avatar>
+        <ion-label>Mathieu Gauchet</ion-label>
+        <ion-icon name="star"></ion-icon>
+        <ion-icon name="star"></ion-icon>
+        <ion-icon name="star"></ion-icon>
+        <ion-icon name="star-half"></ion-icon>
+        <ion-icon name="star-outline"></ion-icon>
+      </ion-item>
+      <ion-item>
+        <ion-avatar slot="start">
+          <img src="../../assets/icon/Gaudinat-Cassandre.jpg" />
+        </ion-avatar>
+        <ion-label>Cassandre Gaudinat</ion-label>
+        <ion-icon name="star"></ion-icon>
+        <ion-icon name="star"></ion-icon>
+        <ion-icon name="star"></ion-icon>
+        <ion-icon name="star-outline"></ion-icon>
+        <ion-icon name="star-outline"></ion-icon>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>
