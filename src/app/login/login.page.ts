@@ -3,6 +3,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { auth } from 'firebase/app';
 import { AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { Animation, AnimationController } from '@ionic/angular';
 
 @Component({
 	selector: 'app-login',
@@ -18,10 +19,19 @@ export class LoginPage implements OnInit {
 	constructor(
 		public afAuth: AngularFireAuth,
 		public alert: AlertController,
-		public router: Router
+		public router: Router,
+		private animationCtrl: AnimationController,
 	) { }
-
+	
 	ngOnInit() {
+	}
+
+	ionViewWillEnter() {
+		const animation = this.animationCtrl.create()
+			.addElement(document.querySelector('.anim_opacity'))
+			.duration(1000)
+			.fromTo('opacity', 0, 1);		
+		animation.play();
 	}
 
 	async login(){

@@ -1,29 +1,391 @@
-<div class="mapouter">
+<style>
 
-	<div class="gmap_canvas">
+	.mapouter{
+		position:relative;
+		text-align:right;
+		height:100%;
+		width:100%;
+	}
 	
-	<iframe width="375" height="812" id="gmap_canvas" src="https://maps.google.com/maps?q=paris%20rue%20saint%20paul&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
-	</iframe>
+	.gmap_canvas {
+		overflow:hidden;
+		background:none!important;
+		height:100%;
+		width:100%;
+	}
 	
-	<a href="https://www.embedgooglemap.net/en/"></a>
+	.iframe{
+		width: 100%;
+		height: 100%;
+	}
+	
+/* DISPLAY */
+
+	.recherche{
+		display:none;
+		position:relative;
+		text-align:right;
+		height:100%;
+		width:100%;
+		background-color: #AF52DE;
+	}
+	
+/* HEADER */
+
+	.toolbar{
+		background-color: rgb(39, 39, 39);
+		color: white;
+		border-bottom: solid #AF52DE 1px;
+		height: 50px;
+		transition: .5s;
+	}
+
+	.compte{
+		float: right;
+		margin-right: 5px;
+	}
+
+	.toggle_div{
+		display: inline-block;
+		height: 50px;
+		margin-left: 5px;
+		width: 80px;
+		text-align: center;
+	}
+
+	ion-toggle {
+		--background: #000;
+		--background-checked: #000;
+		--handle-background: gray;
+		--handle-background-checked: #7a49a5;
+		height: 20px;
+		margin-top: 5px;
+	}
+
+/* TABS-BOTTOM */
+
+	ion-tab-bar{
+		--ion-background-color: rgb(39, 39, 39);
+		border-top: solid #AF52DE 1px;
+		height: 50px;
+	}
+	
+	ion-icon {
+		color: #AF52DE;
+	}
+	
+	.ion-tab-button{
+		background-color: rgb(39, 39, 39);
+		transition: 0.5s;
+	}
+	
+	.ion-tab-button-last{
+		border-left: solid #AF52DE 1px;
+	}
+	
+	ion-label{
+		color: white;
+	}
+	
+/*___________________________*/
+	
+.container{
+	width: 100%;
+	margin-top: 20px;
+	text-align: center;
+}
+
+.box{
+	width: 90%;
+	height: 50px;
+	border: solid white 1px;
+	margin: auto;
+	background-color: rgb(39, 39, 39);
+	color: white;
+}
+
+.vehicule{
+	height: 100px;
+	width: 90%;
+	margin: auto;
+	margin-bottom: 10px;
+}
+
+.a{
+	border: solid white 1px;
+}
+
+.image{
+	width: 75px;
+}
+
+.profil{
+	height: 48px;
+	width: 48px;
+	float: left;
+}
+
+p{
+	float: left;
+	margin-left: 10px;
+}
+
+.stars{
+	float: left;
+	height: 48px;
+	margin-top: 16px;
+	margin-left: 10px;
+}
+
+.v{
+	float: left;
+	height: 48px;
+	margin-left: 10px;
+}
+
+.h{
+	float: right;
+	margin-right: 10px;
+	height: 48px;
+}
+
+.imagev{
+	height: 48px;
+}
+
+.w{
+	font-size: 30px;
+	margin-top: 10px;
+}
+
+.ah{
+	width: 80px;
+}
+
+.oh{
+	margin: auto;
+	margin-bottom:10px;
+	width: 90%;
+}
+
+.menuav{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	z-index: 10;
+	background-color: rgba(39, 39, 39, 0.6);
+	display: none;
+}
+
+.menu{
+	width: 90%;
+	height: 300px;
+	border: solid #AF52DE 1px;
+	position: absolute;
+	margin-left: 18.75px;
+	z-index: 10;
+	margin-top: 240px;
+	background-color: rgb(39, 39, 39);
+}
+
+.itb{
+	height: 50%;
+}
+
+.itbb{
+	border: solid #AF52DE 1px;
+}
+
+.itbbi{
+	font-size: 38px;
+}
+
+</style>
+
+
+<ion-header style="z-index:11;">
+	<div class="toolbar" id="toolbar">
+		<ion-title>Carte</ion-title>
+		
+		<div class='toggle_div'>
+			<ion-toggle (click)="onToggle()"></ion-toggle><br>
+			<ion-label id="etatuser"  style="transition: .5s;">Client</ion-label>
+		</div>
+		
+		<ion-tab-button class="compte" (click)="menu()">
+			<ion-icon name="grid-outline" id="icon2" style="transition: .5s;"></ion-icon>
+		</ion-tab-button>
+		
+		<ion-tab-button class="compte" routerLink="/compte">
+			<ion-icon name="person-circle-outline" id="icon" style="transition: .5s;"></ion-icon>
+		</ion-tab-button>
+	</div>
+</ion-header>
+
+<div class="menuav" id="navmenu" (click)="menu()">
+	<div class="menu">
+
+		<ion-tab-bar class="itb">
+			<ion-tab-button class="itbb" routerLink="/profil">
+				<ion-icon name="people-outline" class="itbbi"></ion-icon>
+				<ion-label>Contact</ion-label>
+			</ion-tab-button>
+			
+			<ion-tab-button class="itbb">
+				<ion-icon name="chatbubbles-outline" class="itbbi"></ion-icon>
+				<ion-label>Messages</ion-label>
+			</ion-tab-button>
+		</ion-tab-bar>
+		
+		<ion-tab-bar class="itb">
+			<ion-tab-button class="itbb" routerLink="/partage">
+				<ion-icon name="share-social-outline" class="itbbi"></ion-icon>
+				<ion-label>Partage</ion-label>
+			</ion-tab-button>
+			
+			<ion-tab-button class="itbb" routerLink="/parametre">
+				<ion-icon name="settings-outline" class="itbbi"></ion-icon>
+				<ion-label>Paramètres</ion-label>
+			</ion-tab-button>
+		</ion-tab-bar>
+
+	</div>
+</div>	
+
+<div class="recherche" id="recherche">
+	<div class="container">
+		<ion-tab-bar class="vehicule">
+			<ion-tab-button class="a"><img class="image" src="../../assets/icon/voiture.png" alt="voiture"/><ion-label>Voiture</ion-label></ion-tab-button>	
+			<ion-tab-button class="a"><img class="image" src="../../assets/icon/van.png" alt="van"/><ion-label>Van</ion-label></ion-tab-button>
+			<ion-tab-button class="a"><img class="image" src="../../assets/icon/camionnette.png" alt="camionnette"/><ion-label>camionnette</ion-label></ion-tab-button>		
+		</ion-tab-bar>
+		
+		<ion-tab-bar class="oh">
+			<p style="color:white;">Mov'er à moins de 1km</p>
+		</ion-tab-bar>
+	
+		<div class="box">
+			<img class="profil" src="../../assets/icon/FRUCHARD_Sosthene.jpg" alt="profil"/>
+			<p class="ah">Sosthene</p>
+			<div class="stars">
+				<ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon>
+			</div>
+			<div class="v">
+				<img class="imagev" src="../../assets/icon/van.png" alt="van"/>
+			</div>
+			<div class="h">
+				<ion-icon name="arrow-forward-circle-outline" class="w"></ion-icon>
+			</div>
+		</div><br>
+		
+		<div class="box">
+			<img class="profil" src="../../assets/icon/DAYAUX-Jules2.png" alt="profil"/>
+			<p class="ah">Jules</p>
+			<div class="stars">
+				<ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon>
+			</div>
+			<div class="v">
+				<img class="imagev" src="../../assets/icon/voiture.png" alt="voiture "/>
+			</div>
+			<div class="h">
+				<ion-icon name="arrow-forward-circle-outline" class="w"></ion-icon>
+			</div>
+		</div><br>
+		
+		<div class="box">
+			<img class="profil" src="../../assets/icon/bougy-alexis2.png" alt="profil"/>
+			<p class="ah">Alexis</p>
+			<div class="stars">
+				<ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star-half"></ion-icon>
+			</div>
+			<div class="v">
+				<img class="imagev" src="../../assets/icon/voiture.png" alt="voiture "/>
+			</div>
+			<div class="h">
+				<ion-icon name="arrow-forward-circle-outline" class="w"></ion-icon>
+			</div>
+		</div><br>
+		
+		<span style="display:none;" id="vous">
+			<div class="box" style="background-color:purple;">
+				<img class="profil" src="../../assets/icon/a.png"alt="profil"/>
+				<p class="ah">Vous</p>
+				<div class="stars">
+					<ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star-half"></ion-icon>
+				</div>
+				<div class="v">
+					<img class="imagev" src="../../assets/icon/camionnette.png" alt="camionnette "/>
+				</div>
+				<div class="h">
+					<ion-icon name="arrow-forward-circle-outline" class="w"></ion-icon>
+				</div>
+			</div><br>
+		</span>
+		
+		<div class="box">
+			<img class="profil" src="../../assets/icon/Fontaine-Alexandre.jpg" alt="profil"/>
+			<p class="ah">Alexandre</p>
+			<div class="stars">
+				<ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star-half"></ion-icon><ion-icon name="star-outline"></ion-icon>
+			</div>
+			<div class="v">
+				<img class="imagev" src="../../assets/icon/camionnette.png" alt="camionnette "/>
+			</div>
+			<div class="h">
+				<ion-icon name="arrow-forward-circle-outline" class="w"></ion-icon>
+			</div>
+		</div><br>
+		
+		<div class="box">
+			<img class="profil" src="../../assets/icon/gauchet-mathieu.jpg" alt="profil"/>
+			<p class="ah">Mathieu</p>
+			<div class="stars">
+				<ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star-half"></ion-icon><ion-icon name="star-outline"></ion-icon>
+			</div>
+			<div class="v">
+				<img class="imagev" src="../../assets/icon/van.png" alt="van "/>
+			</div>
+			<div class="h">
+				<ion-icon name="arrow-forward-circle-outline" class="w"></ion-icon>
+			</div>
+		</div><br>
+		
+		<div class="box">
+			<img class="profil" src="../../assets/icon/Gaudinat-Cassandre.jpg" alt="profil"/>
+			<p class="ah">Cassandre</p>
+			<div class="stars">
+				<ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star-outline"></ion-icon><ion-icon name="star-outline"></ion-icon>
+			</div>
+			<div class="v">
+				<img class="imagev" src="../../assets/icon/camionnette.png" alt="camionnette "/>
+			</div>
+			<div class="h">
+				<ion-icon name="arrow-forward-circle-outline" class="w"></ion-icon>
+			</div>
+		</div><br>
+		
 	</div>
 	
-	<style>
-	
-		.mapouter{
-			position:relative;
-			text-align:right;
-			height:812px;
-			width:375px;
-		}
-		
-		.gmap_canvas {
-			overflow:hidden;
-			background:none!important;
-			height:812px;
-			width:375px;
-		}
-	
-	</style>
-
 </div>
+
+<div class="mapouter" id="mapouter">
+	<div class="gmap_canvas">
+	<iframe class="iframe" id="gmap_canvas" src="https://maps.google.com/maps?q=paris%20rue%20saint%20paul&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>	
+	<a href="https://www.embedgooglemap.net/en/"></a>
+	</div>
+</div>
+
+<ion-tab-bar slot="bottom" id="footer">
+
+	<ion-tab-button (click)="recherche()" class="ion-tab-button">
+		<ion-icon name="search-outline" id="search"></ion-icon>
+		<ion-icon name="close-outline" id="close" style="display:none;"></ion-icon>
+		<ion-label id="text1">Recherche</ion-label>
+	</ion-tab-button>
+	
+	<ion-tab-button class="ion-tab-button-last ion-tab-button" routerLink="/map">
+		<ion-icon name="map" id="map"></ion-icon>
+		<ion-label id="text2">Carte</ion-label>
+	</ion-tab-button>
+
+</ion-tab-bar>

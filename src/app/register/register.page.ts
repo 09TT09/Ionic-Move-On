@@ -29,7 +29,7 @@ export class RegisterPage implements OnInit {
 		try {
 			if(password === validatepassword) {
 				const res = await this.afAuth.createUserWithEmailAndPassword(email, password);
-				this.router.navigate(['/compte']);
+				this.router.navigate(['/map']);
 			} else {
 				this.showAlert("Erreur!", "les mots de passe ne correspondent pas !")
 				//return console.error("Les champs des mots de passe ne sont pas identiques !");

@@ -39,6 +39,14 @@ const routes: Routes = [
     path: 'profil',
     loadChildren: () => import('./profil/profil.module').then( m => m.ProfilPageModule)
   },
+  {
+    path: 'parametre',
+    loadChildren: () => import('./parametre/parametre.module').then( m => m.ParametrePageModule)
+  },
+  {
+    path: 'partage',
+    loadChildren: () => import('./partage/partage.module').then( m => m.PartagePageModule)
+  },
 ];
 
 @NgModule({

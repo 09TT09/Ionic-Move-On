@@ -1,9 +1,43 @@
-<ion-content class="anim_content">
+<style>
 
-	<div class="flex_div">
-		<div>
-			Move'on
-		</div>
+	.flex_div{
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-color: #4B0082;
+		font-family: Arial;
+	}
+
+/* HEADER */
+	
+	ion-toolbar{
+		--background: rgb(39, 39, 39);
+		background: rgb(39, 39, 39);
+		color: white;
+		border-bottom: solid #AF52DE 1px;
+		height: 50px;
+	}
+	
+/* TABS-BOTTOM */
+
+	ion-tab-bar{
+		--ion-background-color: rgb(39, 39, 39);
+		border-top: solid #AF52DE 1px;
+		height: 50px;
+	}
+
+</style>
+
+<ion-header>
+	<ion-toolbar>
+	</ion-toolbar>
+</ion-header>
+
+<div class="flex_div anim_opacity">
+	<div>
+		Move'on
 	</div>
+</div>
 
-</ion-content>
+<ion-tab-bar slot="bottom"></ion-tab-bar>

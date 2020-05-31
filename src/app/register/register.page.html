@@ -1,9 +1,4 @@
 <style>
-
-	ion-content{
-		--ion-background-color: #4B0082;
-		font-family: Arial;
-	}
 	
 	div{
 		width: 100%;
@@ -13,7 +8,9 @@
 		height: 100%;
 		display: flex;
 		justify-content: center;
-		align-items: center;  
+		align-items: center; 
+		background-color: #4B0082;
+		font-family: Arial;
 	}
 
 	.connexion{
@@ -41,14 +38,21 @@
 	
 	a{
 		margin: auto;
+		text-decoration: none;
 	}
 	
 /* HEADER */
 	
 	ion-toolbar{
 		--background: rgb(39, 39, 39);
+		background: rgb(39, 39, 39);
 		color: white;
 		border-bottom: solid #AF52DE 1px;
+		height: 50px;
+	}
+	
+	ion-title{
+		margin-top: 5px;
 	}
 	
 /* TABS-BOTTOM */
@@ -56,14 +60,7 @@
 	ion-tab-bar{
 		--ion-background-color: rgb(39, 39, 39);
 		border-top: solid #AF52DE 1px;
-	}
-	
-	ion-icon {
-		color: #AF52DE;
-	}
-	
-	.ion-tab-button-last{
-		border-left: solid #AF52DE 1px;
+		height: 50px;
 	}
 
 </style>
@@ -74,37 +71,21 @@
 	</ion-toolbar>
 </ion-header>
 
-<ion-content>
-
-	<div class="flex_div">
-		<div>
-			<ion-row><ion-label>Email</ion-label></ion-row><br/>
-			<ion-input type="email" [(ngModel)]="email"></ion-input><br/>
-			
-			<ion-row><ion-label>Mot de passe</ion-label></ion-row><br/>
-			<ion-input type="password" [(ngModel)]="password"></ion-input><br/>
-			
-			<ion-row><ion-label>Confirmation mot de passe</ion-label></ion-row><br/>
-			<ion-input type="password" [(ngModel)]="validatepassword"></ion-input><br/>
+<div class="flex_div">
+	<div>
+		<ion-row><ion-label>Email</ion-label></ion-row><br/>
+		<ion-input type="email" [(ngModel)]="email"></ion-input><br/>
 		
-			<ion-row><ion-button expand="block" class="connexion" (click)="register()">S'inscrire</ion-button></ion-row><br/><br/><br/>
-			
-			<ion-row><a routerLink="/login">Connexion</a></ion-row>
-		</div>
+		<ion-row><ion-label>Mot de passe</ion-label></ion-row><br/>
+		<ion-input type="password" [(ngModel)]="password"></ion-input><br/>
+		
+		<ion-row><ion-label>Confirmation mot de passe</ion-label></ion-row><br/>
+		<ion-input type="password" [(ngModel)]="validatepassword"></ion-input><br/>
+	
+		<ion-row><ion-button expand="block" class="connexion" (click)="register()">S'inscrire</ion-button></ion-row><br/><br/><br/>
+		
+		<ion-row><a routerLink="/login">Connexion</a></ion-row>
 	</div>
-	
-</ion-content>
+</div>
 
-<ion-tab-bar slot="bottom">
-
-	<ion-tab-button tab="speakers">
-		<ion-icon name="search-outline"></ion-icon>
-		<ion-label>Recherche</ion-label>
-	</ion-tab-button>
-	
-	<ion-tab-button tab="map" class="ion-tab-button-last">
-		<ion-icon name="map"></ion-icon>
-		<ion-label>Carte</ion-label>
-	</ion-tab-button>
-
-</ion-tab-bar>
+<ion-tab-bar slot="bottom"></ion-tab-bar>

@@ -1,23 +1,31 @@
 <style>
 
-ion-content{
-	--ion-background-color: #4B0082;
+.div_content{
+	height: 100%;
+	background-color: #4B0082;
 	font-family: Arial;
 }
 
 /* HEADER */
-	
+
 	ion-toolbar{
 		--background: rgb(39, 39, 39);
+		background: rgb(39, 39, 39);
 		color: white;
 		border-bottom: solid #AF52DE 1px;
+		height: 50px;
 	}
 	
+	ion-title{
+		margin-top: 5px;
+	}
+
 /* TABS-BOTTOM */
 
 	ion-tab-bar{
 		--ion-background-color: rgb(39, 39, 39);
 		border-top: solid #AF52DE 1px;
+		height: 50px;
 	}
 	
 	ion-icon {
@@ -27,27 +35,272 @@ ion-content{
 	.ion-tab-button-last{
 		border-left: solid #AF52DE 1px;
 	}
+	
+	ion-label{
+		color: white;
+	}
+	
+	.ion-avatar-main {
+		position: absolute;
+		width: 100px;
+		height: 100px;
+		top: 80px;
+		left: 137.5px;
+	}
+	
+	.ion-label-main {
+		position: absolute;
+		top: 185px;
+		left: 165px;
+		font-size: 20px;
+	}
+	
+	.star {
+		position: absolute;
+		top: 215px;
+		left: 148px;
+	}
+	
+/*____________________________________________*/
+
+.container{
+	width: 100%;
+	margin-top: 20px;
+	text-align: center;
+}
+
+	.box{
+		width: 90%;
+		height: 50px;
+		border: solid white 1px;
+		margin: auto;
+		background-color: rgb(39, 39, 39);
+		color: white;
+	}
+	
+	.vehicule{
+		height: 100px;
+		width: 90%;
+		margin: auto;
+		margin-bottom: 10px;
+	}
+	
+	.a{
+		border: solid white 1px;
+	}
+	
+	.image{
+		width: 75px;
+	}
+	
+	.profil{
+		height: 48px;
+		width: 48px;
+		float: left;
+	}
+	
+	p{
+		float: left;
+		margin-left: 10px;
+	}
+	
+	.stars{
+		float: left;
+		height: 48px;
+		margin-top: 16px;
+		margin-left: 10px;
+	}
+	
+	.v{
+		float: left;
+		height: 48px;
+		margin-left: 10px;
+	}
+	
+	.h{
+		float: right;
+		margin-right: 10px;
+		height: 48px;
+	}
+	
+	.imagev{
+		height: 48px;
+	}
+	
+	.w{
+		font-size: 30px;
+		margin-top: 10px;
+	}
+	
+	.ah{
+		width: 80px;
+	}
+	
+	.oh{
+		margin: auto;
+		margin-bottom:10px;
+		width: 90%;
+		border: solid white 1px;
+	}
+	
+	.toolbar{
+		background-color: rgb(39, 39, 39);
+		color: white;
+		border-bottom: solid #AF52DE 1px;
+		height: 50px;
+		transition: .5s;
+	}
+	
+	.compte{
+		float: right;
+		margin-right: 5px;
+	}
+	
+	.menuav{
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		z-index: 10;
+		background-color: rgba(39, 39, 39, 0.6);
+		display: none;
+	}
+	
+	.menu{
+		width: 90%;
+		height: 300px;
+		border: solid #AF52DE 1px;
+		position: absolute;
+		margin-left: 18.75px;
+		z-index: 10;
+		margin-top: 240px;
+		background-color: rgb(39, 39, 39);
+	}
+	
+	.itb{
+		height: 50%;
+	}
+	
+	.itbb{
+		border: solid #AF52DE 1px;
+	}
+	
+	.itbbi{
+		font-size: 38px;
+	}
 
 </style>
 
-<ion-header>
-	<ion-toolbar>
-		<ion-title>compte</ion-title>
-	</ion-toolbar>
+<ion-header style="z-index:11;">
+	<div class="toolbar" id="toolbar">
+		<ion-title>Compte</ion-title>
+		
+		<ion-tab-button class="compte" (click)="menu()">
+			<ion-icon name="grid-outline" id="icon2" style="transition: .5s;"></ion-icon>
+		</ion-tab-button>
+		
+		<ion-tab-button class="compte" routerLink="/compte">
+			<ion-icon name="person-circle-outline" id="icon" style="transition: .5s;"></ion-icon>
+		</ion-tab-button>
+	</div>
 </ion-header>
 
-<ion-content>
+<div class="menuav" id="navmenu" (click)="menu()">
+	<div class="menu">
 
-</ion-content>
+		<ion-tab-bar class="itb">
+			<ion-tab-button class="itbb" routerLink="/profil">
+				<ion-icon name="people-outline" class="itbbi"></ion-icon>
+				<ion-label>Contact</ion-label>
+			</ion-tab-button>
+			
+			<ion-tab-button class="itbb">
+				<ion-icon name="chatbubbles-outline" class="itbbi"></ion-icon>
+				<ion-label>Messages</ion-label>
+			</ion-tab-button>
+		</ion-tab-bar>
+		
+		<ion-tab-bar class="itb">
+			<ion-tab-button class="itbb" routerLink="/partage">
+				<ion-icon name="share-social-outline" class="itbbi"></ion-icon>
+				<ion-label>Partage</ion-label>
+			</ion-tab-button>
+			
+			<ion-tab-button class="itbb" routerLink="/parametre">
+				<ion-icon name="settings-outline" class="itbbi"></ion-icon>
+				<ion-label>Paramètres</ion-label>
+			</ion-tab-button>
+		</ion-tab-bar>
 
-<ion-tab-bar slot="bottom">
+	</div>
+</div>
 
-	<ion-tab-button tab="speakers">
+<div class="div_content">
+	<ion-img src="../../assets/icon/fond.jpg" style="border-bottom: solid white 1px"></ion-img>
+	<ion-avatar class="ion-avatar-main">
+	<img src="../../assets/icon/b.png" />
+	</ion-avatar>
+		<ion-label class="ion-label-main">Vous</ion-label>
+	<div class="star">
+		<ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon>
+	</div>
+
+	<br>
+	<ion-tab-bar class="oh">
+		<p style="color:white;">Contacts récents</p>
+	</ion-tab-bar><br>
+	
+	<div class="box">
+		<img class="profil" src="../../assets/icon/FRUCHARD_Sosthene.jpg" alt="profil"/>
+		<p class="ah">Sosthene</p>
+		<div class="stars">
+			<ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon>
+		</div>
+		<div class="v">
+			<img class="imagev" src="../../assets/icon/van.png" alt="van"/>
+		</div>
+		<div class="h">
+			<ion-icon name="arrow-forward-circle-outline" class="w"></ion-icon>
+		</div>
+	</div><br>
+	
+	<div class="box">
+		<img class="profil" src="../../assets/icon/Fontaine-Alexandre.jpg" alt="profil"/>
+		<p class="ah">Alexandre</p>
+		<div class="stars">
+			<ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star-half"></ion-icon><ion-icon name="star-outline"></ion-icon>
+		</div>
+		<div class="v">
+			<img class="imagev" src="../../assets/icon/camionnette.png" alt="camionnette "/>
+		</div>
+		<div class="h">
+			<ion-icon name="arrow-forward-circle-outline" class="w"></ion-icon>
+		</div>
+	</div><br>
+		
+	<div class="box">
+		<img class="profil" src="../../assets/icon/Gaudinat-Cassandre.jpg" alt="profil"/>
+		<p class="ah">Cassandre</p>
+		<div class="stars">
+			<ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star-outline"></ion-icon><ion-icon name="star-outline"></ion-icon>
+		</div>
+		<div class="v">
+			<img class="imagev" src="../../assets/icon/camionnette.png" alt="camionnette "/>
+		</div>
+		<div class="h">
+			<ion-icon name="arrow-forward-circle-outline" class="w"></ion-icon>
+		</div>
+	</div><br>
+		
+</div>
+
+<ion-tab-bar slot="bottom" id="footer">
+
+	<ion-tab-button>
 		<ion-icon name="search-outline"></ion-icon>
 		<ion-label>Recherche</ion-label>
 	</ion-tab-button>
 	
-	<ion-tab-button tab="map" class="ion-tab-button-last">
+	<ion-tab-button class="ion-tab-button-last" routerLink="/map">
 		<ion-icon name="map"></ion-icon>
 		<ion-label>Carte</ion-label>
 	</ion-tab-button>

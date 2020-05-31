@@ -1,0 +1,70 @@
+<style>
+
+.flex_div{
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #4B0082;
+	font-family: Arial;
+}
+
+/* HEADER */
+
+	ion-toolbar{
+		--background: rgb(39, 39, 39);
+		background: rgb(39, 39, 39);
+		color: white;
+		border-bottom: solid #AF52DE 1px;
+		height: 50px;
+	}
+	
+	ion-title{
+		margin-top: 5px;
+	}
+
+/* TABS-BOTTOM */
+
+	ion-tab-bar{
+		--ion-background-color: rgb(39, 39, 39);
+		border-top: solid #AF52DE 1px;
+		height: 50px;
+	}
+	
+	ion-icon {
+		color: #AF52DE;
+	}
+	
+	.ion-tab-button-last{
+		border-left: solid #AF52DE 1px;
+	}
+	
+	ion-label{
+		color: white;
+	}
+
+</style>
+
+<ion-header>
+	<ion-toolbar>
+		<ion-title>Partager</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<div class="flex_div">
+
+</div>
+
+<ion-tab-bar slot="bottom" id="footer">
+
+	<ion-tab-button>
+		<ion-icon name="search-outline"></ion-icon>
+		<ion-label>Recherche</ion-label>
+	</ion-tab-button>
+	
+	<ion-tab-button class="ion-tab-button-last" routerLink="/map">
+		<ion-icon name="map"></ion-icon>
+		<ion-label>Carte</ion-label>
+	</ion-tab-button>
+
+</ion-tab-bar>

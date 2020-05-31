@@ -14,15 +14,14 @@ export class StartPage implements OnInit {
 		private animationCtrl: AnimationController
 	) { }
 	
-	ngOnInit() {
-		
-		let hideFooterTimeout = setTimeout( () => {
+	ngOnInit() {		
+		let x = setTimeout( () => {
 			const animation = this.animationCtrl.create()
-				.addElement(document.querySelector('.anim_content'))
+				.addElement(document.querySelector('.anim_opacity'))
 				.duration(2000)
 				.fromTo('opacity', 1, 0);		
 			animation.play();
-			let hideFooterTimeout = setTimeout( () => {
+			let y = setTimeout( () => {
 				this.router.navigate(['/login']);
 			}, 2000);
 		}, 2000);
